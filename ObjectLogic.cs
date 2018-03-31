@@ -78,11 +78,11 @@ namespace ObjectLogic
             else return safeSpot;
         }
 
-        // @@ INPUT - 2 ints to swap, passed by reference
+        // @@ INPUT - 2 type T to swap, passed by reference
         // @@ RETURN - nothing, all done in ref
-        public static void SwapValues(ref int first, ref int second)
+        public static void SwapValues <T> (ref T first, ref T second)
         {
-            int temp = first; // Temp is less memory conservative, but helps to avoid overflow in (a = a-b, b = b+a, a = b-a)
+            T temp = first; // Temp is less memory conservative, but helps to avoid overflow in (a = a-b, b = b+a, a = b-a). Also, a-b doesn't work for non-number types
             first = second;
             second = temp;
         }
